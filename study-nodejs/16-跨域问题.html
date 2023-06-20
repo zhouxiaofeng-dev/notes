@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解决跨域问题</title>
+</head>
+
+<body>
+    <button id="btnGET">GET</button>
+    <button id="btnPOST">POST</button>
+    <button id="btnDELETE">DELETE</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const btnGET = document.getElementById('btnGET');
+        const btnPOST = document.getElementById('btnPOST');
+        const btnDELETE = document.getElementById('btnDELETE');
+        btnGET.onclick = () => {
+            axios({
+                methods: 'GET',
+                url: 'http://127.0.0.1/api/get',
+                data: {
+                    name: 'zxf',
+                    age: 18
+                }
+            }).then(res => {
+                console.log(res);
+            })
+        }
+        btnPOST.onclick = () => {
+            axios.post('http://127.0.0.1/api/post', {
+                "name": "zxf",
+                "age": 18,
+            }).then(res => {
+                console.log(res);
+            })
+        }
+        btnDELETE.onclick = () => {
+            axios.delete('http://127.0.0.1/api/delete').then(res => {
+                console.log(res);
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // async函数  返回结果是一个promise对象
+        async function fn() {
+            //返回一个字符串
+            // return '尚硅谷';
+            //只要你返回的不是promise类型对象，则这个函数的返回结果就是一个promise对象;
+            //抛出错误 返回的结果是一个失败的Promise
+            // throw new Error('出错了');
+            // 返回的结果如果是一个promise对象
+            // 则如果是一个成功的promise对象，则返回一个成功的promise对象
+            // 如果是一个失败的promise对象，则返回的是一个失败的promise对象
+            return new Promise((resolve, reject) => {
+                // resolve('成功的数据');
+                reject('失败的错误');
+            })
+        }
+        const result = fn();
+
+        //调用then方法
+        result.thne(value => {
+            console.log(value);
+        }, reason => {
+            console.warn(reason);
+        })
+    </script>
+</body>
+
+</html>

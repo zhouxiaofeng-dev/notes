@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .box {
+            width: 450px;
+            height: 350px;
+            background-color: #fff;
+            margin: 100px 25px;
+            display: inline-block;
+        }
+
+        .box img {
+            /* 图片的宽度和父亲一样宽 */
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .review {
+            height: 70px;
+            font-size: 14px;
+            /* 因为没有width属性，不会撑开盒子 */
+            padding: 0 28px;
+            margin-top: 30px;
+        }
+
+        .appraise {
+            color: #b0b0b0;
+            font-size: 12px;
+            margin-top: 20px;
+            padding: 0 28px;
+
+        }
+
+        .info {
+            color: black;
+            font-size: 14px;
+            margin-top: 15px;
+            padding: 0 28px;
+        }
+
+        .info h4 {
+            display: inline-block;
+            font-weight: 400;
+
+        }
+
+        .info span {
+            display: inline-block;
+            color: #ff6700;
+        }
+
+        .info em {
+            font-style: normal;
+            color: #ebe4e0;
+            margin: 0 5px 0 12px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="box">
+            <a href="#"><img src="image/img.jpg" alt=""></a>
+            <p class="review">快递牛，整体不错蓝牙可以说秒连，红米给力</p>
+            <div class="appraise">来自于117384232的评价</div>
+            <div class="info">
+                <h4><a href="#">Redmi AirDots真无线蓝...</a></h4>
+                <em>|</em>
+                <span>99.9元</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <a href="#"><img src="image/mm.jpg" alt=""></a>
+            <p class="review">手办很棒，基本无损，比图片还好看</p>
+            <div class="appraise">来自肥宅king的评价</div>
+            <div class="info">
+                <h4>
+                    <a href="#">Rmsakd soal zefo..</a>
+                </h4>
+                <em>|</em>
+                <span>4400.00元</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <a href="#"><img src="image/1.jpg" alt=""></a>
+            <p class="review">地图很棒，帮助我更好的查看各个地方的位置和气温</p>
+            <div class="appraise">来自流浪者的评价</div>
+            <div class="info">
+                <h4>
+                    <a href="#">详细版中国地图以及气温图</a>
+                </h4>
+                <em>|</em>
+                <span>125.00元</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

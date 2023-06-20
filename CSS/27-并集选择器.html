@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合选择器之并集选择器</title>
+    <style>
+        /* 要求1：请把熊大熊二改成粉色 */
+        div,
+        p {
+            color: pink;
+        }
+
+        /* 要求2：请把熊大熊二改成粉色，还有小猪一家改成粉色  */
+        div,
+        p,
+        ul li {
+            color: pink;
+        }
+
+        span,
+        ul .peiqi,
+        .mama {
+            color: green;
+        }
+
+        /* 最后一个选择器不需要加逗号 */
+    </style>
+</head>
+
+<body>
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li class="peiqi">小猪佩奇</li>
+        <li>猪爸爸</li>
+        <li class="mama">猪妈妈</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList—最简单的待办事项列表</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="jQuery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <label for="title">Todolist</label>
+            <input type="text" id="title" name="title" placeholder="添加Todo" required>
+        </section>
+    </header>
+    <section>
+        <h2>正在进行<span id="todocount"></span></h2>
+        <ol id="todolist" class="demo-box">
+
+        </ol>
+        <h2>已经完成<span id="donecount"></span></h2>
+        <ul id="donelist">
+
+        </ul>
+    </section>
+    <script>
+        load();
+        $("#title").on('keydown ', function(event) {
+            if (event.keyCode === 13) {
+                var local = getData();
+                local.push({
+                    title: $(this).val(),
+                    done: false
+                });
+                saveData(local);
+                load();
+                $(this).empty();
+            }
+        });
+        $("ol,ul").on("click", "a", function() {
+            var data = getData();
+            var index = $(this).attr("att");
+            data.splice(index, 1);
+            saveData(data);
+            load();
+        });
+        $("ol,ul").on("click", "input", function() {
+            var data = getData();
+            var index = $(this).siblings("a").attr("att");
+            data[index].done = $(this).prop("checked");
+            saveData(data);
+            load();
+        });
+
+
+        function getData() {
+            var data = localStorage.getItem('todolist ');
+            if (data !== null) {
+                return JSON.parse(data);
+            } else {
+                return [];
+            }
+        };
+
+        function saveData(data) {
+            localStorage.setItem('todolist ', JSON.stringify(data));
+        };
+
+        function load() {
+            var data = getData();
+            var todocount = 0;
+            var donecount = 0;
+            $("ol,ul").empty();
+            $.each(data, function(i, n) {
+                if (n.done === false) {
+                    $("ol").prepend("<li><input type='checkbox'><p>" + n.title + "</p><a href='javascript:;' att=" + i + "></a></li><a href='javascript:;' arr=" + i + "></a>");
+                    todocount++;
+                } else {
+                    $("ul").prepend("<li><input type='checkbox' checked><p>" + n.title + "</p><a href='javascript:;' att=" + i + "></a></li><a href='javascript:;'></a>");
+                    donecount++;
+                }
+            })
+            $("#todocount").text(todocount);
+            $("#donecount").text(donecount);
+        };
+    </script>
+</body>
+
+</html>

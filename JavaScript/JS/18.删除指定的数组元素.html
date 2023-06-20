@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var n;
+        var arr = [];
+        var New;
+        n = prompt('请输入数组的长度');
+        arr.length = n;
+        for (var i = 0; i < n; i++) {
+            arr[i] = prompt('请输入第' + (i + 1) + '个元素');
+        }
+        alert('输入后的数组为' + arr + '');
+        New = prompt('请输入想要删除的数组元素');
+        for (i = 0; i < n; i++) {
+            if (arr[i] == parseFloat(New)) {
+                for (var j = i; j < n - 1; j++) {
+                    arr[j] = arr[j + 1];
+                }
+                arr.length--;
+            }
+        }
+        alert('删除后的数组为' + arr + '');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

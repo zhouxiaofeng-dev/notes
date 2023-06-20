@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch发送AJAX请求</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="page-header">fetch方法 发送AJAX请求</h2>
+        <button class="btn btn-primary">AJAX请求</button>
+    </div>
+    <script>
+        const btn = document.querySelector("button");
+        btn.onclick = function () {
+            fetch("http://127.0.0.1:8000/fetch-server?vip=10", {
+                //请求方法
+                method: 'POST',
+                //请求头
+                headers: {
+                    name: 'zxf',
+                },
+                //请求体 可能是一个 Blob、BufferSource (en-US)、FormData、URLSearchParams 或者 USVString 对象。注意 GET 或 HEAD 方法的请求不能包含body 信息。
+                body: 'username=admin&password=admin'
+            }).then(response => {
+                console.log(response);
+                //return response.text();  两者皆可  格式不同
+                return response.json();
+            }).then(response => {
+                console.log(response);
+            })
+        }
+    </script>
+</body>
+
+</html>

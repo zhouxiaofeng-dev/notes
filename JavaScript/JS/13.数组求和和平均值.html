@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var n;
+        var arr = [];
+        var sum = 0;
+        var average;
+        n = prompt('请输入数组的长度');
+        arr.length = n;
+        for (var i = 0; i < n; i++) {
+            arr[i] = prompt('请输入第' + (i + 1) + '个元素');
+        }
+        console.log(arr);
+        for (i = 0; i < n; i++) {
+            sum += parseFloat(arr[i]);
+        }
+        console.log(sum);
+        average = sum / n;
+        alert('该数组的和为' + sum + ',平均值为' + average + '');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

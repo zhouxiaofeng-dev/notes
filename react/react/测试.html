@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+    <script type="text/babel">
+        import React, { Component } from "react";
+        import ReactDOM from "react-dom";
+
+        const withSize = (Component) => {
+        return class toSize extends Component {
+        state = {
+        xPos: document.documentElement.clientWidth,
+        yPos: document.documentElement.clientHeight,
+        };
+
+        getPos = () => {
+        this.setState({
+        xPos: document.documentElement.clientWidth,
+        yPos: document.documentElement.clientHeight,
+        });
+        };
+
+        componentDidMount() {
+        window.addEventListener("resize", this.getPos);
+        }
+
+        componentWillUnmount() {
+        window.removeEventListener("resize", this.getPos);
+        }
+
+        render() {
+        return
+        <Component {...this.state} />;
+        }
+        };
+        };
+
+        //Sub组件
+        class Sub extends Component {
+        render() {
+        return (
+        <div>
+            <button>
+                x:{this.props.xPos} -- y:{this.props.yPos}
+            </button>
+        </div>
+        );
+        }
+        }
+        //Foo组件
+        class Foo extends Component {
+        render() {
+        return (
+        <div>
+            <p>
+                x:{this.props.xPos} -- y:{this.props.yPos}
+            </p>
+        </div>
+        );
+        }
+        }
+
+        const SubWithSize = withSize(Sub);
+        const FooWithSize = withSize(Foo);
+
+        class App extends Component {
+        render() {
+        return (
+        <div>
+            <SubWithSize></SubWithSize>
+            <FooWithSize></FooWithSize>
+        </div>
+        );
+        }
+        }
+
+        //渲染APP到页面
+        ReactDOM.render(
+        <App />, document.getElementById("root"));
+
+    </script>
+</body>
+
+</html>

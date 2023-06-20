@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS字体属性之复合属性</title>
+     <style>
+        /* 想要div文字变倾斜 加粗  字号设置为16像素  并且是温软雅黑 */
+        div {
+            /* font-style: italic;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: Microsoft yahei; */
+              /* 复合属性：简写的方式 */
+              /* font:font-style font-weight   font-size/line-height  font-family */
+              font: italic 700 16px Microsoft yahei
+              /* font 风格 字重 尺寸/行高 字体 按照顺序 */
+              /* 另外：size和family必须要有 其他可以省略 */
+        }
+     </style>
+</head>
+<body>
+    <div>三生三世十里桃花，一心一意百行代码</div>
+</body>
+</html>

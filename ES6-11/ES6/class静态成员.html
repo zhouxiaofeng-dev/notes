@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Phone() {
+
+        // }
+        // Phone.name = '手机';
+        // Phone.change = function() {
+        //     console.log('我可以改变世界');
+        // }
+        // Phone.prototype.size = '5.5inch';
+
+
+        // // 上面的name和change函数就是Phone的静态成员，可以理解为是新加入的，但是如果要实例化一个新的对象，则无法获得这些静态成员，而只能获得函数对象原有的属性
+        // let nokia = new Phone();
+        // console.log(nokia.name);
+        // // nokia.change();
+        // console.log(nokia.size);
+
+
+        class Phone {
+            static name = '手机';
+            static change() {
+                console.log('我可以改变世界');
+            }
+        }
+        let nokia = new Phone();
+        console.log(nokia.name);
+        console.log(Phone.name);
+    </script>
+</body>
+
+</html>

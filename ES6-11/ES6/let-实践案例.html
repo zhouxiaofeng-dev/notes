@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: 0 auto;
+        }
+        
+        .item {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="page-header">点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        //获取div元素对象
+        let items = document.getElementsByClassName('item')
+
+        //遍历并绑定事件
+        //当var声明i时，循环会持续进行，当点击时，会去找window的i即为3 若用let声明i时，则只会取当前点击的i，因为他的块级作用域
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].onclick = function() {
+                //修改当前元素的背景颜色
+                //this.style.background='pink';
+                items[i].style.background = 'pink'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(450px, 0);
+            }
+        }
+
+        .father {
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+            overflow: hidden;
+            background-color: skyblue;
+        }
+
+        .father div {
+            float: left;
+            width: 250px;
+            height: 300px;
+            animation-name: move;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 3s;
+        }
+
+        .son1 {
+            background-color: pink;
+        }
+
+        .son2 {
+            background-color: green;
+        }
+
+        .son3 {
+            background-color: purple;
+        }
+
+        .son4 {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son1">
+        </div>
+        <div class="son2"></div>
+        <div class="son3"></div>
+        <div class="son4"></div>
+    </div>
+</body>
+
+</html>
